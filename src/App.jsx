@@ -155,7 +155,7 @@ const ChartTip = ({ active, payload, label }) => {
       {payload.map((p,i) => (
         <div key={i} style={{ color:p.color||"#e8eef8", margin:"2px 0" }}>
           {p.name}: <strong style={{ color:"#e8eef8" }}>
-            {Math.abs(p.value) > 999 ? "$"+(p.value/1000).toFixed(1)+"B" : p.value+"%"}
+            {Math.abs(p.value) > 999 ? "$"+(p.value/1000).toFixed(1)+"B" : "$"+p.value+"M"}
           </strong>
         </div>
       ))}
