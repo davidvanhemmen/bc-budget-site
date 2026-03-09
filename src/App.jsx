@@ -361,7 +361,7 @@ export default function BCBudgetApp() {
                     <Pie data={REVENUE_2026} cx="50%" cy="50%" innerRadius={48} outerRadius={78} dataKey="value" paddingAngle={2}>
                       {REVENUE_2026.map((e,i)=><Cell key={i} fill={e.color} />)}
                     </Pie>
-                    <Tooltip formatter={(v)=>"$"+(v/1000).toFixed(1)+"B"} contentStyle={{ background:"rgba(6,14,28,0.95)", border:"1px solid rgba(200,169,81,0.4)", borderRadius:8, fontFamily:"Arial,sans-serif", fontSize:12 }} />
+                    <Tooltip formatter={(v, name)=>["$"+(v/1000).toFixed(1)+"B", name]} contentStyle={{ background:"rgba(6,14,28,0.95)", border:"1px solid rgba(200,169,81,0.4)", borderRadius:8, fontFamily:"Arial,sans-serif", fontSize:12, color:"#e8eef8" }} itemStyle={{ color:"#e8eef8" }} labelStyle={{ color:"#C8A951" }} />
                   </PieChart>
                 </ResponsiveContainer>
                 <div style={{ flex:1 }}>
@@ -384,7 +384,7 @@ export default function BCBudgetApp() {
                     <Pie data={SPEND_2026} cx="50%" cy="50%" innerRadius={48} outerRadius={78} dataKey="value" paddingAngle={2}>
                       {SPEND_2026.map((e,i)=><Cell key={i} fill={e.color} />)}
                     </Pie>
-                    <Tooltip formatter={(v)=>"$"+(v/1000).toFixed(1)+"B"} contentStyle={{ background:"rgba(6,14,28,0.95)", border:"1px solid rgba(200,169,81,0.4)", borderRadius:8, fontFamily:"Arial,sans-serif", fontSize:12 }} />
+                    <Tooltip formatter={(v, name)=>["$"+(v/1000).toFixed(1)+"B", name]} contentStyle={{ background:"rgba(6,14,28,0.95)", border:"1px solid rgba(200,169,81,0.4)", borderRadius:8, fontFamily:"Arial,sans-serif", fontSize:12, color:"#e8eef8" }} itemStyle={{ color:"#e8eef8" }} labelStyle={{ color:"#C8A951" }} />
                   </PieChart>
                 </ResponsiveContainer>
                 <div style={{ flex:1 }}>
