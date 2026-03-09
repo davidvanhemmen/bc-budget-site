@@ -241,21 +241,16 @@ export default function BCBudgetApp() {
   return (
     <div style={{ minHeight:"100vh", background:"linear-gradient(160deg,#080f1e,#0e1f3d,#0a1a30)", fontFamily:"Georgia,'Times New Roman',serif" }}>
       {/* HEADER */}
-      <div style={{ background:"linear-gradient(90deg,#002070,#071840)", borderBottom:"3px solid #C8A951", boxShadow:"0 2px 20px rgba(0,0,0,0.5)" }}>
-        <div style={{ maxWidth:1120, margin:"0 auto", padding:"13px 22px", display:"flex", alignItems:"center", gap:14 }}>
-          <div style={{ width:46, height:46, background:"linear-gradient(135deg,#002070,#0044aa)", border:"2px solid #C8A951", borderRadius:8, display:"flex", alignItems:"center", justifyContent:"center", fontSize:22 }}>🏛️</div>
-          <div>
-            <div style={{ color:"#C8A951", fontSize:10, fontWeight:700, letterSpacing:3, textTransform:"uppercase", fontFamily:"Arial,sans-serif" }}>Province of British Columbia</div>
-            <div style={{ color:"#fff", fontSize:19, fontWeight:700, lineHeight:1.1 }}>BC Budget AI Agent</div>
-            <div style={{ color:"#7090b8", fontSize:12, fontFamily:"Arial,sans-serif" }}>2016/17–2028/29 · Actuals from Public Accounts · Forecasts & Plans from Budget 2026/27</div>
-          </div>
-          <div style={{ marginLeft:"auto", display:"flex", gap:8 }}>
-            {[["dashboard","📊 Dashboard"],["chat","💬 AI Chat"]].map(([t,label]) => (
+      <div style={{ borderBottom:"1px solid rgba(255,255,255,0.07)", backdropFilter:"blur(10px)", background:"rgba(8,15,30,0.85)" }}>
+        <div style={{ maxWidth:1120, margin:"0 auto", padding:"14px 24px", display:"flex", alignItems:"center" }}>
+          <div style={{ color:"#fff", fontSize:16, fontWeight:600, letterSpacing:0.5, fontFamily:"Arial,sans-serif" }}>BC Budget Agent</div>
+          <div style={{ marginLeft:"auto", display:"flex", gap:6 }}>
+            {[["dashboard","Dashboard"],["chat","Chat"]].map(([t,label]) => (
               <button key={t} onClick={()=>setTab(t)} style={{
-                background: tab===t ? "rgba(200,169,81,0.18)" : "rgba(255,255,255,0.05)",
-                border: tab===t ? "1px solid rgba(200,169,81,0.55)" : "1px solid rgba(255,255,255,0.12)",
-                borderRadius:8, padding:"7px 16px", color: tab===t ? "#C8A951" : "#7090b8",
-                fontFamily:"Arial,sans-serif", fontSize:13, fontWeight:700, cursor:"pointer", transition:"all 0.2s"
+                background: tab===t ? "rgba(255,255,255,0.1)" : "transparent",
+                border: "none",
+                borderRadius:6, padding:"6px 14px", color: tab===t ? "#fff" : "#5a7a9a",
+                fontFamily:"Arial,sans-serif", fontSize:13, fontWeight: tab===t ? 600 : 400, cursor:"pointer", transition:"all 0.2s"
               }}>{label}</button>
             ))}
           </div>
@@ -504,7 +499,7 @@ export default function BCBudgetApp() {
 
           <div style={{ textAlign:"center", paddingBottom:24 }}>
             <button onClick={()=>setTab("chat")} style={{ background:"linear-gradient(135deg,#C8A951,#a88838)", border:"none", borderRadius:10, padding:"12px 32px", color:"#1a0e00", fontWeight:700, fontSize:15, cursor:"pointer", fontFamily:"Arial,sans-serif" }}>
-              💬 Ask the AI Agent about this data →
+              💬 Chat →
             </button>
           </div>
         </div>
