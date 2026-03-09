@@ -163,6 +163,17 @@ const ChartTip = ({ active, payload, label }) => {
   );
 };
 
+const PieTip = ({ active, payload }) => {
+  if (!active || !payload?.length) return null;
+  const d = payload[0];
+  return (
+    <div style={{ background:"rgba(6,14,28,0.97)", border:"1px solid rgba(200,169,81,0.4)", borderRadius:10, padding:"10px 14px", fontSize:13, fontFamily:"Arial,sans-serif" }}>
+      <div style={{ color:"#C8A951", fontWeight:700, marginBottom:4 }}>{d.name}</div>
+      <div style={{ color:"#e8eef8" }}>${(d.value/1000).toFixed(1)}B</div>
+    </div>
+  );
+};
+
 function KPI({ label, value, sub, color="#C8A951", icon }) {
   return (
     <div style={{ background:"rgba(255,255,255,0.04)", border:"1px solid rgba(200,169,81,0.18)", borderRadius:12, padding:"15px 16px", flex:1, minWidth:130 }}>
@@ -361,7 +372,7 @@ export default function BCBudgetApp() {
                     <Pie data={REVENUE_2026} cx="50%" cy="50%" innerRadius={48} outerRadius={78} dataKey="value" paddingAngle={2}>
                       {REVENUE_2026.map((e,i)=><Cell key={i} fill={e.color} />)}
                     </Pie>
-                    <Tooltip formatter={(v, name)=>["$"+(v/1000).toFixed(1)+"B", name]} contentStyle={{ background:"rgba(6,14,28,0.95)", border:"1px solid rgba(200,169,81,0.4)", borderRadius:8, fontFamily:"Arial,sans-serif", fontSize:12, color:"#e8eef8" }} itemStyle={{ color:"#e8eef8" }} labelStyle={{ color:"#C8A951" }} />
+                    <Tooltip content={<PieTip />} />
                   </PieChart>
                 </ResponsiveContainer>
                 <div style={{ flex:1 }}>
@@ -384,7 +395,7 @@ export default function BCBudgetApp() {
                     <Pie data={SPEND_2026} cx="50%" cy="50%" innerRadius={48} outerRadius={78} dataKey="value" paddingAngle={2}>
                       {SPEND_2026.map((e,i)=><Cell key={i} fill={e.color} />)}
                     </Pie>
-                    <Tooltip formatter={(v, name)=>["$"+(v/1000).toFixed(1)+"B", name]} contentStyle={{ background:"rgba(6,14,28,0.95)", border:"1px solid rgba(200,169,81,0.4)", borderRadius:8, fontFamily:"Arial,sans-serif", fontSize:12, color:"#e8eef8" }} itemStyle={{ color:"#e8eef8" }} labelStyle={{ color:"#C8A951" }} />
+                    <Tooltip content={<PieTip />} />
                   </PieChart>
                 </ResponsiveContainer>
                 <div style={{ flex:1 }}>
